@@ -72,7 +72,8 @@ def test(q_table):
             if reward == -10:
                 penalties += 1
             if old_state == state:
-                print(f"Parameters aren't good , upgrade epsilon, gamma, alpha or episodes numbers")
+                print(
+                    f"Parameters aren't good , upgrade epsilon, gamma, alpha or episodes numbers")
                 return {"Parameters aren't good , upgrade epsilon, gamma, alpha or episodes numbers"}
 
             # Put each rendered frame into dict for animation
@@ -92,11 +93,16 @@ def test(q_table):
     print(f"Results after {episodes} episodes:")
     print(f"Average timesteps per episode: {total_epochs / episodes}")
     print(f"Average penalties per episode: {total_penalties / episodes}")
-    return episodes, total_penalties, total_penalties, frames
+    return episodes, total_epochs, total_penalties, frames
 
 
-q_table = train(alpha=0.9, gamma=0.9, epsilon=0.9, episodes=500)
-episodes, total_penalties, total_penalties, frames = test(q_table)
-##print(episodes, total_penalties, total_penalties)
-print_frames(frames)
+def qlearning(episodes, gamma, alpha, epsilon):
+    ##episodes = 100
+    #gamma = 0.9
+    #alpha = 0.1
+    #epsilon = 0.9
 
+    q_table = train(gamma, alpha, epsilon, episodes)
+    episodes, total_epochs, total_penalties, frames = test(q_table)
+    print_frames(frames)
+    return {episodes, total_epochs, total_penalties, frames}
