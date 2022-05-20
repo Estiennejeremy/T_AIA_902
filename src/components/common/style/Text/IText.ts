@@ -3,4 +3,5 @@ export interface IText {
   width?: string;
   fontSize?: string;
   color?: string;
+  disabled?: boolean;
 }

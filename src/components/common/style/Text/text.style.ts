@@ -9,7 +9,7 @@ export const Text = styled.p<IText>`
     font-family: "Poppins", sans-serif;
     margin: ${(props) => props.margin};
     width: ${(props) => props.width};
-    color: ${(props) => props.color};
+    color: ${(props) => (props.disabled ? "#c9c9c9" : props.color)};
     font-weight: bold;
   }
 `;

@@ -10,7 +10,7 @@ export const Button = styled.button`
     box-shadow: 20px 20px 30px #d9d9d9, -20px -20px 60px #ffffff;
     font-size: 20px;
     font-weight: bold;
-    color: #b3b3b3;
+    /* color: #b3b3b3; */
     transition: background 1s ease-out;
     cursor: pointer;
     font-family: "Poppins", sans-serif;

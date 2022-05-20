@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Div, Input, Text } from "../../common/style";
+import { Div, Input, Text } from "../../../common/style";
 import { ITextField } from "./ITextField";
 
 const TextField: React.FC<ITextField> = ({

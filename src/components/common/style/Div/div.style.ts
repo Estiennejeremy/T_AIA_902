@@ -15,6 +15,8 @@ export const Div = styled.div<IDiv>`
     border-radius: ${(props) => props.borderRadius};
     background: ${(props) => props.background};
     box-shadow: ${(props) => props.boxShadow};
+    flex-wrap: ${(props) => props.flexWrap};
+    flex-direction: ${(props) => props.flexDirection};
   }
 `;
 

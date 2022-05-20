@@ -11,4 +11,6 @@ export interface IDiv {
   background?: string;
   boxShadow?: string;
   padding?: string;
+  flexWrap?: string;
+  flexDirection?: string;
 }
