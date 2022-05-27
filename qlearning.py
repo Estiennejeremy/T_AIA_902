@@ -97,12 +97,7 @@ def test(q_table):
 
 
 def qlearning(episodes, gamma, alpha, epsilon):
-    ##episodes = 100
-    #gamma = 0.9
-    #alpha = 0.1
-    #epsilon = 0.9
-
     q_table = train(gamma, alpha, epsilon, episodes)
     episodes, total_epochs, total_penalties, frames = test(q_table)
     print_frames(frames)
-    return {episodes, total_epochs, total_penalties, frames}
+    return {episodes, total_epochs, total_penalties}
