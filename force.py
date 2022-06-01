@@ -1,21 +1,23 @@
 import gym
 
 env = gym.make("Taxi-v3").env
+
+
 def force(s):
     env.render()
 
-    env.reset() # reset environment to a new, random state
+    env.reset()  # reset environment to a new, random state
     env.render()
 
     print("Action Space {}".format(env.action_space))
     print("State Space {}".format(env.observation_space))
 
-    env.s = 328  # set environment to illustration's state
+    env.s = s  # set environment to illustration's state
 
     epochs = 0
     penalties, reward = 0, 0
 
-    frames = [] # for animation
+    frames = []  # for animation
 
     done = False
 
@@ -25,22 +27,20 @@ def force(s):
 
         if reward == -10:
             penalties += 1
-        
+
         # Put each rendered frame into dict for animation
         frames.append({
             'frame': env.render(mode='ansi'),
             'state': state,
             'action': action,
             'reward': reward
-            }
+        }
         )
 
         epochs += 1
-        
-        
+
     print("Timesteps taken: {}".format(epochs))
     print("Penalties incurred: {}".format(penalties))
-
 
     from IPython.display import clear_output
     from time import sleep
@@ -54,6 +54,8 @@ def force(s):
             print(f"Action: {frame['action']}")
             print(f"Reward: {frame['reward']}")
             sleep(.1)
-            
+
     print_frames(frames)
-    return {state,reward, done }
+    return {state, reward, epochs, penalties}
+
+
