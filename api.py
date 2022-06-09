@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from qlearning import qlearning
+from deepqleanring import dqlearningdev
 from force import force
 app = FastAPI()
 
@@ -30,3 +31,7 @@ def qLearningRoute(s: int):
 @app.post("/qlearning")
 def qLearningRoute(item: Item):
     return qlearning(item.episodes, item.gamma, item.alpha, item.epsilon)
+
+@app.post("/deepqlearning")
+def deepQlearning(item: Item):
+    return dqlearningdev(item)

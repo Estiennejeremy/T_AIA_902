@@ -56,6 +56,6 @@ def force(s):
             sleep(.1)
 
     print_frames(frames)
-    return {state, reward, epochs, penalties}
+    return {'data': {'state' :state, 'reward':reward, 'epochs': epochs, 'pena':penalties}}
 
 
