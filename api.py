@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from qlearning import qlearning
 from force import force
-import keras 
+from keras.models import load_model
 
 import gym
 
@@ -37,7 +37,7 @@ def deepQLearningRoute():
 
     env = gym.make(ENV_NAME)
 
-    new_model = keras.load_model('dql_model')
+    new_model = load_model('dql_model')
     episodes, total_epochs, total_penalties, frames = new_model.test(env, nb_episodes=5, visualize=True, nb_max_episode_steps=99)
     return {'data': { 'epi': episodes, 'epochs': total_epochs, 'pena':total_penalties}}
 
