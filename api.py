@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from qlearning import qlearning
 from force import force
 import keras
-from keras.models import laod
+from keras.models import load_model
 from rl.agents.dqn import DQNAgent
 from rl.policy import EpsGreedyQPolicy
 from rl.memory import SequentialMemory
