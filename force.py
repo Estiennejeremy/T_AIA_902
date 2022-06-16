@@ -3,7 +3,7 @@ import gym
 env = gym.make("Taxi-v3").env
 
 
-def force(s):
+def force():
     env.render()
 
     env.reset()  # reset environment to a new, random state
@@ -12,7 +12,7 @@ def force(s):
     print("Action Space {}".format(env.action_space))
     print("State Space {}".format(env.observation_space))
 
-    env.s = s  # set environment to illustration's state
+    env.s = 126  # set environment to illustration's state
 
     epochs = 0
     penalties, reward = 0, 0
@@ -55,7 +55,7 @@ def force(s):
             print(f"Reward: {frame['reward']}")
             sleep(.1)
 
-    print_frames(frames)
+    #print_frames(frames)
     return {'data': {'state' :state, 'reward':reward, 'epochs': epochs, 'pena':penalties}}
 
 
