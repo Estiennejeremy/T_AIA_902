@@ -26,7 +26,7 @@ def read_root():
 
 
 @app.get("/bruteforce")
-def qLearningRoute():
+def forceRoute():
     return force()
 
 
