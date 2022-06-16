@@ -21,7 +21,6 @@ def dqlearningTraining():
     print("Number of states: %d" % env.observation_space.n)
 
     action_size = env.action_space.n
-    state_size = env.observation_space.n
 
     np.random.seed(123)
     env.seed(123)
@@ -51,5 +50,4 @@ def dqlearningTraining():
 
 def dqlearningdev():
     new_model = keras.load_model('my_model')
-    new_model.load_weights('my_model_weights.h5f')
 
