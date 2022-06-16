@@ -12,6 +12,8 @@ from keras.models import load_model
 from rl.agents.dqn import DQNAgent
 from rl.policy import EpsGreedyQPolicy
 from rl.memory import SequentialMemory
+from fastapi.middleware.cors import CORSMiddleware
+
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Flatten, Embedding, Reshape
 from keras.optimizer_v1 import Adam
@@ -20,6 +22,19 @@ Adam._name = 'hey'
 import gym
 
 app = FastAPI()
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+    'https://api.damned-i-am-lost.com'
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class Item(BaseModel):
