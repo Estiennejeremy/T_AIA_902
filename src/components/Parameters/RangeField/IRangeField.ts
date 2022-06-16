@@ -1,8 +1,6 @@
+import { TQLearning } from "../../common/types.ts/TQLearning";
+
 export interface IRangeField {
-  range: { [key: string]: number };
-  setRange: React.Dispatch<
-    React.SetStateAction<{
-      [key: string]: number;
-    }>
-  >;
+  range: TQLearning;
+  setRange: React.Dispatch<React.SetStateAction<TQLearning>>;
 }

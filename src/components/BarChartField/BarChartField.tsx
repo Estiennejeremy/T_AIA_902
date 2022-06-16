@@ -3,14 +3,26 @@ import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { IBarChartField } from "./IBarChartField";
 import { Div } from "../common/style/Div/div.style";
+import { TBruteforce } from "../common/types.ts/TBruteforce";
+import { getData } from "../common/function/getData";
 
 const BarChartField: React.FC<IBarChartField> = ({ range }) => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [bruteforceData, setBruteforceData] = React.useState<
+    TBruteforce | undefined
+  >();
+
+  React.useEffect(() => {
+    getData("bruteforce", setBruteforceData, setIsLoading);
+    console.log("bruteforceData", bruteforceData);
+  }, [bruteforceData]);
+
   Chart.register(...registerables);
 
-  const firstValue: number = Math.floor(range.episode / 5);
-  const secondValue: number = Math.floor((range.episode / 5) * 2);
-  const thirdValue: number = Math.floor((range.episode / 5) * 3);
-  const fourthValue: number = Math.floor((range.episode / 5) * 4);
+  const firstValue: number = Math.floor(range.episodes / 5);
+  const secondValue: number = Math.floor((range.episodes / 5) * 2);
+  const thirdValue: number = Math.floor((range.episodes / 5) * 3);
+  const fourthValue: number = Math.floor((range.episodes / 5) * 4);
 
   const labels: string[] = [
     "0",
@@ -18,7 +30,7 @@ const BarChartField: React.FC<IBarChartField> = ({ range }) => {
     secondValue.toString(),
     thirdValue.toString(),
     fourthValue.toString(),
-    range.episode.toString(),
+    range.episodes.toString(),
   ];
 
   const dataLine = {
@@ -48,6 +60,10 @@ const BarChartField: React.FC<IBarChartField> = ({ range }) => {
       },
     ],
   };
+
+  if (isLoading) {
+    return <div>Is Loading</div>;
+  }
 
   return (
     <>

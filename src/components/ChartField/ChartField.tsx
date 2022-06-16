@@ -7,10 +7,10 @@ import { Div } from "../common/style/Div/div.style";
 const ChartField: React.FC<IChartField> = ({ range }) => {
   Chart.register(...registerables);
 
-  const firstValue: number = Math.floor(range.episode / 5);
-  const secondValue: number = Math.floor((range.episode / 5) * 2);
-  const thirdValue: number = Math.floor((range.episode / 5) * 3);
-  const fourthValue: number = Math.floor((range.episode / 5) * 4);
+  const firstValue: number = Math.floor(range.episodes / 5);
+  const secondValue: number = Math.floor((range.episodes / 5) * 2);
+  const thirdValue: number = Math.floor((range.episodes / 5) * 3);
+  const fourthValue: number = Math.floor((range.episodes / 5) * 4);
 
   const labels: string[] = [
     "0",
@@ -18,7 +18,7 @@ const ChartField: React.FC<IChartField> = ({ range }) => {
     secondValue.toString(),
     thirdValue.toString(),
     fourthValue.toString(),
-    range.episode.toString(),
+    range.episodes.toString(),
   ];
 
   const dataLine = {

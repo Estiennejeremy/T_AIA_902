@@ -1,3 +1,5 @@
+import { TQLearning } from "../common/types.ts/TQLearning";
+
 export interface IBarChartField {
-  range: { [key: string]: number };
+  range: TQLearning;
 }
