@@ -1,6 +1,7 @@
-import { TQLearning } from "../../common/types.ts/TQLearning";
+import { TPostData } from "../../common/types/TPostData";
 
 export interface IRangeField {
-  range: TQLearning;
-  setRange: React.Dispatch<React.SetStateAction<TQLearning>>;
+  range: TPostData;
+  setRange: React.Dispatch<React.SetStateAction<TPostData>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }

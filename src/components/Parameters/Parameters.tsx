@@ -4,11 +4,19 @@ import DeepQLearningField from "./DeepQLearningField/DeepQLearningField";
 import RangeField from "./RangeField/RangeField";
 import { IParameters } from "./IParameters";
 
-const Parameters: React.FC<IParameters> = ({ range, setRange }) => {
+const Parameters: React.FC<IParameters> = ({
+  range,
+  setRange,
+  setIsLoading,
+}) => {
   return (
-    <Div display="flex" justifyContent="space-around">
+    <Div display="flex" justifyContent="space-around" flexWrap="wrap">
       <Div margin="2%">
-        <RangeField range={range} setRange={setRange} />
+        <RangeField
+          range={range}
+          setRange={setRange}
+          setIsLoading={setIsLoading}
+        />
       </Div>
       <Div margin="2%">
         <DeepQLearningField range={range} />

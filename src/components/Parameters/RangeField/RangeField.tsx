@@ -3,7 +3,11 @@ import { IRangeField } from "./IRangeField";
 import { Button, Input, Text, Div } from "../../common/style";
 import { postData } from "../../common/function/postData";
 
-const RangeField: React.FC<IRangeField> = ({ range, setRange }) => {
+const RangeField: React.FC<IRangeField> = ({
+  range,
+  setRange,
+  setIsLoading,
+}) => {
   return (
     <Div
       display="flex"
@@ -11,6 +15,7 @@ const RangeField: React.FC<IRangeField> = ({ range, setRange }) => {
       flexWrap="wrap"
       borderRadius="50px"
       boxShadow="20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff"
+      width="800px"
     >
       <Div margin="5%">
         <Div display="flex" alignItems="start" borderRadius="20px">
@@ -153,7 +158,12 @@ const RangeField: React.FC<IRangeField> = ({ range, setRange }) => {
         </Div>
       </Div>
       <Div display="flex" alignItems="center" margin="50px">
-        <Button type="submit" onClick={() => postData(range)}>
+        <Button
+          type="submit"
+          onClick={() => {
+            postData(range, setIsLoading);
+          }}
+        >
           Submit
         </Button>
       </Div>

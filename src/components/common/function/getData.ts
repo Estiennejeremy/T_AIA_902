@@ -1,19 +1,20 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { TBruteforce } from "../types.ts/TBruteforce";
+import { TBruteforce } from "../types/TBruteforce";
+import { TDeepQLearning } from "../types/TDeepQLearning";
 
 export function getData(
   path: string,
-  setData: React.Dispatch<React.SetStateAction<TBruteforce | undefined>>,
+  setData: React.Dispatch<React.SetStateAction<any | undefined>>,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   axios
-    .get(`https://api.damned-i-am-lost.com/${path}`, {
+    .get(`http://api.damned-i-am-lost.com/${path}`, {
       headers: {
         "Content-Type": "application/json",
       },
     })
-    .then((result: AxiosResponse<TBruteforce>) => {
-      setData(result.data);
+    .then((result: AxiosResponse<any>) => {
+      setData(result.data.data);
       setIsLoading(false);
     })
     .catch((error: AxiosError<any>): void => {

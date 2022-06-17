@@ -1,4 +1,4 @@
-export type TQLearning = {
+export type TPostData = {
   gamma: number;
   alpha: number;
   epsilon: number;

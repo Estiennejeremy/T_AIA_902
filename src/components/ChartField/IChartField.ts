@@ -1,5 +1,5 @@
-import { TQLearning } from "../common/types.ts/TQLearning";
+import { TPostData } from "../common/types/TPostData";
 
 export interface IChartField {
-  range: TQLearning;
+  range: TPostData;
 }
