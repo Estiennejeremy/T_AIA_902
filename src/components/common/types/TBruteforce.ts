@@ -3,4 +3,5 @@ export type TBruteforce = {
   epochs: number;
   pena: number;
   state: number;
+  timeLoading: number;
 };

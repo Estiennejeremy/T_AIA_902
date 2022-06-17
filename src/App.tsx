@@ -1,6 +1,5 @@
 import * as React from "react";
 import BarChartField from "./components/BarChartField/BarChartField";
-// import ChartField from "./components/ChartField/ChartField";
 import { Div } from "./components/common/style";
 import Parameters from "./components/Parameters/Parameters";
 import "./App.css";
@@ -8,7 +7,9 @@ import { TPostData } from "./components/common/types/TPostData";
 import { TBruteforce } from "./components/common/types/TBruteforce";
 import { TQLearning } from "./components/common/types/TQLearning";
 import { TDeepQLearning } from "./components/common/types/TDeepQLearning";
-import { getData } from "./components/common/function/getData";
+import { getBruteForceData } from "./components/common/function/getBruteForceData";
+import { getDeepQData } from "./components/common/function/getDeepQData";
+import Loading from "./components/Loading/Loading";
 
 const App: React.FC = () => {
   const [range, setRange] = React.useState<TPostData>({
@@ -22,40 +23,76 @@ const App: React.FC = () => {
   >();
   const [QLearningData, setQLearningData] = React.useState<
     TQLearning | undefined
-  >({ epochs: 22, pena: 24, epi: 26 });
+  >();
   const [deepQLearningData, setDeepQLearningData] = React.useState<
     TDeepQLearning | undefined
   >();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    getData("bruteforce", setBruteforceData, setIsLoading);
-    getData("deepQ", setDeepQLearningData, setIsLoading);
+    getDeepQData(setDeepQLearningData, setIsLoading);
+    getBruteForceData(setBruteforceData, setIsLoading);
   }, [setBruteforceData, setDeepQLearningData, setIsLoading]);
-  console.log("deepQLearningData", deepQLearningData);
 
   console.log("bruteforceData", bruteforceData);
+  console.log("deepQLearningData", deepQLearningData);
+  console.log("QLearningData", QLearningData);
 
   return (
     <Div className="App">
+      <Parameters
+        range={range}
+        setRange={setRange}
+        setIsLoading={setIsLoading}
+        setQLearningData={setQLearningData}
+      />
       {isLoading ? (
-        <div>Is Loading</div>
+        <Loading />
       ) : (
         <>
-          <Parameters
-            range={range}
-            setRange={setRange}
-            setIsLoading={setIsLoading}
-          />
-          {/* <ChartField range={range} /> */}
           {bruteforceData && QLearningData && deepQLearningData && (
-            <BarChartField
-              bruteforceData={bruteforceData}
-              setBruteforceData={setBruteforceData}
-              setIsLoading={setIsLoading}
-              deepQLearningData={deepQLearningData}
-              setDeepQLearningData={setDeepQLearningData}
-            />
+            <Div display="flex" flexWrap="wrap">
+              <Div width="50%">
+                <BarChartField
+                  bruteforceData={bruteforceData}
+                  deepQLearningData={deepQLearningData}
+                  QLearningData={QLearningData}
+                  label="reward"
+                />
+              </Div>
+              <Div width="50%">
+                <BarChartField
+                  bruteforceData={bruteforceData}
+                  deepQLearningData={deepQLearningData}
+                  QLearningData={QLearningData}
+                  label="epochs"
+                />
+              </Div>
+              <Div width="50%">
+                <BarChartField
+                  bruteforceData={bruteforceData}
+                  deepQLearningData={deepQLearningData}
+                  QLearningData={QLearningData}
+                  label="penalty"
+                />
+              </Div>
+              <Div width="50%">
+                <BarChartField
+                  bruteforceData={bruteforceData}
+                  deepQLearningData={deepQLearningData}
+                  QLearningData={QLearningData}
+                  label="episode"
+                />
+              </Div>
+              <Div width="50%">
+                <BarChartField
+                  bruteforceData={bruteforceData}
+                  deepQLearningData={deepQLearningData}
+                  QLearningData={QLearningData}
+                  label="execution"
+                />
+              </Div>
+            </Div>
           )}
         </>
       )}

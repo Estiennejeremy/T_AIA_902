@@ -1,15 +1,10 @@
 import { TBruteforce } from "../common/types/TBruteforce";
 import { TDeepQLearning } from "../common/types/TDeepQLearning";
+import { TQLearning } from "../common/types/TQLearning";
 
 export interface IBarChartField {
-  // range: TQLearning;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   bruteforceData: TBruteforce;
-  setBruteforceData: React.Dispatch<
-    React.SetStateAction<TBruteforce | undefined>
-  >;
   deepQLearningData: TDeepQLearning;
-  setDeepQLearningData: React.Dispatch<
-    React.SetStateAction<TDeepQLearning | undefined>
-  >;
+  QLearningData: TQLearning;
+  label: string;
 }

@@ -3,40 +3,68 @@ import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { IBarChartField } from "./IBarChartField";
 import { Div } from "../common/style/Div/div.style";
-import { getData } from "../common/function/getData";
 
 const BarChartField: React.FC<IBarChartField> = ({
   bruteforceData,
-  setBruteforceData,
-  setIsLoading,
   deepQLearningData,
-  setDeepQLearningData,
+  QLearningData,
+  label,
 }) => {
   Chart.register(...registerables);
-  // const deepQUpdated = deepQLearningData.reward[0]
 
   const dataLine = {
-    labels: ["Reward"],
+    labels: [label],
     borderColor: "red",
     // xAxisID: [10, 11],
     datasets: [
       {
         label: "Bruteforce",
-        data: [bruteforceData.reward],
+        data: [
+          label === "reward"
+            ? bruteforceData.reward
+            : label === "epochs"
+            ? bruteforceData.epochs
+            : label === "penalty"
+            ? bruteforceData.pena
+            : label === "execution"
+            ? bruteforceData.timeLoading
+            : bruteforceData.state,
+        ],
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgb(255, 99, 132)",
         // yAxisID: "y",
       },
       {
         label: "QLearning",
-        data: [0],
+        data: [
+          // label === "reward"
+          // ? bruteforceData.reward
+          // :
+          label === "epochs"
+            ? QLearningData.epochs
+            : label === "penalty"
+            ? QLearningData.pena
+            : label === "execution"
+            ? QLearningData.timeLoading
+            : QLearningData.epi,
+        ],
         borderColor: "rgb(54, 162, 235)",
         backgroundColor: "rgb(54, 162, 235)",
         // yAxisID: "y2",
       },
       {
         label: "DeepQLearning",
-        data: [deepQLearningData.reward],
+        data: [
+          label === "reward"
+            ? deepQLearningData.reward
+            : // : label === "epochs"
+            // ? deepQLearningData.epochs
+            // : label === "penalty"
+            // ? deepQLearningData.pena :
+            label === "execution"
+            ? deepQLearningData.timeLoading
+            : deepQLearningData.step,
+        ],
         borderColor: "rgb(255, 205, 86)",
         backgroundColor: "rgb(255, 205, 86)",
       },

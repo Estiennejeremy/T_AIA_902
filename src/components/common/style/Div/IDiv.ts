@@ -1,5 +1,6 @@
 export interface IDiv {
   width?: string;
+  height?: string;
   display?: string;
   justifyContent?: string;
   alignItems?: string;
@@ -13,4 +14,5 @@ export interface IDiv {
   padding?: string;
   flexWrap?: string;
   flexDirection?: string;
+  transform?: string;
 }

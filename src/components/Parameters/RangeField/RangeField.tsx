@@ -7,6 +7,7 @@ const RangeField: React.FC<IRangeField> = ({
   range,
   setRange,
   setIsLoading,
+  setQLearningData,
 }) => {
   return (
     <Div
@@ -15,12 +16,16 @@ const RangeField: React.FC<IRangeField> = ({
       flexWrap="wrap"
       borderRadius="50px"
       boxShadow="20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff"
-      width="800px"
+      width="700px"
+      height="70vh"
     >
-      <Div margin="5%">
+      <h1>Q Learning</h1>
+
+      <Div margin="2%">
         <Div display="flex" alignItems="start" borderRadius="20px">
-          <Text width="250px" fontSize="1.2em" margin="10px">
-            Alpha(learning rate)
+          <Text width="150px" fontSize="1.2em" margin="10px">
+            Alpha <br />
+            (learning rate)
           </Text>
           <Div>
             <Input
@@ -54,7 +59,7 @@ const RangeField: React.FC<IRangeField> = ({
         </Div>
 
         <Div display="flex" alignItems="start" borderRadius="20px">
-          <Text width="250px" fontSize="1.2em" margin="10px">
+          <Text width="150px" fontSize="1.2em" margin="10px">
             Gamma
           </Text>
           <Div>
@@ -88,7 +93,7 @@ const RangeField: React.FC<IRangeField> = ({
           </Text>
         </Div>
         <Div display="flex" alignItems="start">
-          <Text width="250px" fontSize="1.2em" margin="10px">
+          <Text width="150px" fontSize="1.2em" margin="10px">
             Epsilon
           </Text>
           <Div>
@@ -123,7 +128,7 @@ const RangeField: React.FC<IRangeField> = ({
         </Div>
 
         <Div display="flex" alignItems="start">
-          <Text width="250px" fontSize="1.2em" margin="10px">
+          <Text width="150px" fontSize="1.2em" margin="10px">
             Episodes
           </Text>
           <Div>
@@ -157,11 +162,11 @@ const RangeField: React.FC<IRangeField> = ({
           </Text>
         </Div>
       </Div>
-      <Div display="flex" alignItems="center" margin="50px">
+      <Div display="flex" alignItems="center" margin="20px">
         <Button
           type="submit"
           onClick={() => {
-            postData(range, setIsLoading);
+            postData(range, setIsLoading, setQLearningData);
           }}
         >
           Submit

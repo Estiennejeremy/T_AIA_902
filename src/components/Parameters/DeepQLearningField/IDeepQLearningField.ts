@@ -1,3 +1,3 @@
 export interface IDeepQLearningField {
-  range: { [key: string]: number };
+  // range: { [key: string]: number };
 }

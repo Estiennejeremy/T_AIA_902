@@ -4,6 +4,7 @@ import { IDiv } from "./IDiv";
 export const Div = styled.div<IDiv>`
    {
     width: ${(props) => props.width};
+    height: ${(props) => props.height};
     display: ${(props) => props.display};
     justify-content: ${(props) => props.justifyContent};
     align-items: ${(props) => props.alignItems};
@@ -17,6 +18,7 @@ export const Div = styled.div<IDiv>`
     box-shadow: ${(props) => props.boxShadow};
     flex-wrap: ${(props) => props.flexWrap};
     flex-direction: ${(props) => props.flexDirection};
+    transform: ${(props) => props.flexDirection};
   }
 `;
 
