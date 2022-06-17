@@ -43,13 +43,9 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    // getDeepQData(setDeepQLearningData, setIsLoading);
-    // getBruteForceData(setBruteforceData, setIsLoading);
+    getDeepQData(setDeepQLearningData, setIsLoading);
+    getBruteForceData(setBruteforceData, setIsLoading);
   }, [setBruteforceData, setDeepQLearningData, setIsLoading]);
-
-  console.log("bruteforceData", bruteforceData);
-  console.log("deepQLearningData", deepQLearningData);
-  console.log("QLearningData", QLearningData);
 
   return (
     <Div className="App">
@@ -79,7 +75,7 @@ const App: React.FC = () => {
                   bruteforceData={bruteforceData}
                   deepQLearningData={deepQLearningData}
                   QLearningData={QLearningData}
-                  label="epochs"
+                  label="number of actions realised"
                 />
               </Div>
               <Div width="50%">

@@ -31,7 +31,7 @@ const RangeField: React.FC<IRangeField> = ({
             <Input
               type="range"
               min="0.1"
-              max="2"
+              max="1"
               step="0.1"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setRange({ ...range, alpha: e.target.valueAsNumber });
@@ -43,7 +43,7 @@ const RangeField: React.FC<IRangeField> = ({
                 0,1
               </Text>
               <Text margin="10px" fontSize="1.5em">
-                2
+                1
               </Text>
             </Div>
           </Div>
@@ -66,7 +66,7 @@ const RangeField: React.FC<IRangeField> = ({
             <Input
               type="range"
               min="0.1"
-              max="2"
+              max="1"
               step="0.1"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setRange({ ...range, gamma: e.target.valueAsNumber });
@@ -78,7 +78,7 @@ const RangeField: React.FC<IRangeField> = ({
                 0,1
               </Text>
               <Text margin="10px" fontSize="1.5em">
-                2
+                1
               </Text>
             </Div>
           </Div>
@@ -100,7 +100,7 @@ const RangeField: React.FC<IRangeField> = ({
             <Input
               type="range"
               min="0.1"
-              max="2"
+              max="1"
               step="0.1"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setRange({ ...range, epsilon: e.target.valueAsNumber });
@@ -112,7 +112,7 @@ const RangeField: React.FC<IRangeField> = ({
                 0,1
               </Text>
               <Text margin="10px" fontSize="1.5em">
-                2
+                1
               </Text>
             </Div>
           </Div>
@@ -134,8 +134,8 @@ const RangeField: React.FC<IRangeField> = ({
           <Div>
             <Input
               type="range"
-              min="10"
-              max="20000"
+              min="1000"
+              max="100000"
               step="10"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setRange({ ...range, episodes: e.target.valueAsNumber });
@@ -144,10 +144,10 @@ const RangeField: React.FC<IRangeField> = ({
             />
             <Div display="flex" justifyContent="space-between">
               <Text margin="10px" fontSize="1.5em">
-                10
+                1000
               </Text>
               <Text margin="10px" fontSize="1.5em">
-                20000
+                100000
               </Text>
             </Div>
           </Div>

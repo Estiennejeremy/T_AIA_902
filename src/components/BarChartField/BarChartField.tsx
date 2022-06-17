@@ -22,7 +22,7 @@ const BarChartField: React.FC<IBarChartField> = ({
         data: [
           label === "reward"
             ? bruteforceData.reward
-            : label === "epochs"
+            : label === "number of actions realised"
             ? bruteforceData.epochs
             : label === "penalty"
             ? bruteforceData.pena
@@ -38,7 +38,7 @@ const BarChartField: React.FC<IBarChartField> = ({
           // label === "reward"
           // ? bruteforceData.reward
           // :
-          label === "epochs"
+          label === "number of actions realised"
             ? QLearningData.epochs
             : label === "penalty"
             ? QLearningData.pena
@@ -53,7 +53,7 @@ const BarChartField: React.FC<IBarChartField> = ({
         data: [
           label === "reward"
             ? deepQLearningData.reward
-            : label === "epochs"
+            : label === "number of actions realised"
             ? deepQLearningData.step
             : label === "penalty"
             ? deepQLearningData.pena
