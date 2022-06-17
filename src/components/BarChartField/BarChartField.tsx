@@ -26,9 +26,7 @@ const BarChartField: React.FC<IBarChartField> = ({
             ? bruteforceData.epochs
             : label === "penalty"
             ? bruteforceData.pena
-            : label === "execution"
-            ? bruteforceData.timeLoading
-            : bruteforceData.state,
+            : bruteforceData.timeLoading,
         ],
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgb(255, 99, 132)",
@@ -44,9 +42,7 @@ const BarChartField: React.FC<IBarChartField> = ({
             ? QLearningData.epochs
             : label === "penalty"
             ? QLearningData.pena
-            : label === "execution"
-            ? QLearningData.timeLoading
-            : QLearningData.epi,
+            : QLearningData.timeLoading,
         ],
         borderColor: "rgb(54, 162, 235)",
         backgroundColor: "rgb(54, 162, 235)",
@@ -57,13 +53,11 @@ const BarChartField: React.FC<IBarChartField> = ({
         data: [
           label === "reward"
             ? deepQLearningData.reward
-            : // : label === "epochs"
-            // ? deepQLearningData.epochs
-            // : label === "penalty"
-            // ? deepQLearningData.pena :
-            label === "execution"
-            ? deepQLearningData.timeLoading
-            : deepQLearningData.step,
+            : label === "epochs"
+            ? deepQLearningData.step
+            : label === "penalty"
+            ? deepQLearningData.pena
+            : deepQLearningData.timeLoading,
         ],
         borderColor: "rgb(255, 205, 86)",
         backgroundColor: "rgb(255, 205, 86)",

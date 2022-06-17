@@ -2,7 +2,9 @@ import * as React from "react";
 import { Text, Div } from "../../common/style";
 import { IDeepQLearningField } from "./IDeepQLearningField";
 
-const DeepQLearningField: React.FC<IDeepQLearningField> = () => {
+const DeepQLearningField: React.FC<IDeepQLearningField> = ({
+  deepQLearningData,
+}) => {
   return (
     <Div
       display="flex"
@@ -14,7 +16,7 @@ const DeepQLearningField: React.FC<IDeepQLearningField> = () => {
     >
       <h1>Deep Q Learning</h1>
       <Div margin="2%">
-        <Div
+        {/* <Div
           display="flex"
           justifyContent="space-around"
           borderRadius="20px"
@@ -34,7 +36,7 @@ const DeepQLearningField: React.FC<IDeepQLearningField> = () => {
           >
             ????
           </Text>
-        </Div>
+        </Div> */}
 
         <Div
           display="flex"
@@ -54,7 +56,7 @@ const DeepQLearningField: React.FC<IDeepQLearningField> = () => {
             // color="#81cbd4"
             disabled
           >
-            ????
+            {deepQLearningData?.gamma ?? "???"}
           </Text>
         </Div>
         <Div display="flex" justifyContent="space-around" margin="50px 0px">
@@ -70,7 +72,7 @@ const DeepQLearningField: React.FC<IDeepQLearningField> = () => {
             // color="#81cbd4"
             disabled
           >
-            ????
+            {deepQLearningData?.epsilon ?? "???"}
           </Text>
         </Div>
 
@@ -87,7 +89,7 @@ const DeepQLearningField: React.FC<IDeepQLearningField> = () => {
             disabled
             // color="#81cbd4"
           >
-            100000
+            1000000
           </Text>
         </Div>
       </Div>

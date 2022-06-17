@@ -45,6 +45,7 @@ const App: React.FC = () => {
         setRange={setRange}
         setIsLoading={setIsLoading}
         setQLearningData={setQLearningData}
+        deepQLearningData={deepQLearningData}
       />
       {isLoading ? (
         <Loading />
@@ -52,14 +53,14 @@ const App: React.FC = () => {
         <>
           {bruteforceData && QLearningData && deepQLearningData && (
             <Div display="flex" flexWrap="wrap">
-              <Div width="50%">
+              {/* <Div width="50%">
                 <BarChartField
                   bruteforceData={bruteforceData}
                   deepQLearningData={deepQLearningData}
                   QLearningData={QLearningData}
                   label="reward"
-                />
-              </Div>
+                /> 
+              </Div>*/}
               <Div width="50%">
                 <BarChartField
                   bruteforceData={bruteforceData}
@@ -76,14 +77,14 @@ const App: React.FC = () => {
                   label="penalty"
                 />
               </Div>
-              <Div width="50%">
+              {/* <Div width="50%">
                 <BarChartField
                   bruteforceData={bruteforceData}
                   deepQLearningData={deepQLearningData}
                   QLearningData={QLearningData}
                   label="episode"
                 />
-              </Div>
+              </Div> */}
               <Div width="50%">
                 <BarChartField
                   bruteforceData={bruteforceData}

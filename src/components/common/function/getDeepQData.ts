@@ -14,14 +14,16 @@ export function getDeepQData(
     })
     .then((result: AxiosResponse<any>) => {
       const endCalcul = Date.now();
-      const timeLoading = endCalcul - startCalcul;
+      const timeLoading = (endCalcul - startCalcul) / 1000;
       setIsLoading(false);
-
+      console.log("result", result);
       setData({
-        reward: result.data.reward[0],
+        reward: result.data.reward,
         // epochs: result.data.data.epochs,
-        // pena: result.data.data.pena,
-        step: result.data.steps[0],
+        pena: result.data.pena,
+        step: result.data.steps,
+        epsilon: result.data.epsilon,
+        gamma: result.data.gamma,
         timeLoading: timeLoading,
       });
     })

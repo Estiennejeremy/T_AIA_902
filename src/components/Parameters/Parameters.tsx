@@ -9,6 +9,7 @@ const Parameters: React.FC<IParameters> = ({
   setRange,
   setIsLoading,
   setQLearningData,
+  deepQLearningData,
 }) => {
   return (
     <Div display="flex" justifyContent="space-around" flexWrap="wrap">
@@ -21,7 +22,7 @@ const Parameters: React.FC<IParameters> = ({
         />
       </Div>
       <Div margin="2%">
-        <DeepQLearningField />
+        <DeepQLearningField deepQLearningData={deepQLearningData} />
       </Div>
     </Div>
   );

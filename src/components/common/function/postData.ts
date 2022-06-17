@@ -18,7 +18,7 @@ export function postData(
     .then((result: AxiosResponse<any>): TQLearning => {
       setIsLoading(false);
       const endCalcul = Date.now();
-      const timeLoading = endCalcul - startCalcul;
+      const timeLoading = (endCalcul - startCalcul) / 1000;
       setQLearningData({
         // reward: result.data.data.reward,
         epochs: result.data.data.epochs,

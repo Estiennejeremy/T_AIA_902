@@ -1,3 +1,5 @@
+import { TDeepQLearning } from "../../common/types/TDeepQLearning";
+
 export interface IDeepQLearningField {
-  // range: { [key: string]: number };
+  deepQLearningData: TDeepQLearning | undefined;
 }

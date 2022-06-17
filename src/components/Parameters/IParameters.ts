@@ -1,3 +1,4 @@
+import { TDeepQLearning } from "../common/types/TDeepQLearning";
 import { TPostData } from "../common/types/TPostData";
 import { TQLearning } from "../common/types/TQLearning";
 
@@ -8,4 +9,5 @@ export interface IParameters {
   setQLearningData: React.Dispatch<
     React.SetStateAction<TQLearning | undefined>
   >;
+  deepQLearningData: TDeepQLearning | undefined;
 }

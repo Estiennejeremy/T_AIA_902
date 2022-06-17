@@ -14,7 +14,7 @@ export function getBruteForceData(
     })
     .then((result: AxiosResponse<any>) => {
       const endCalcul = Date.now();
-      const timeLoading = endCalcul - startCalcul;
+      const timeLoading = (endCalcul - startCalcul) / 1000;
       setIsLoading(false);
       setData({
         reward: result.data.data.reward,
