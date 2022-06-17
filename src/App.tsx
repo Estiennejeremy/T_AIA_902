@@ -20,18 +20,31 @@ const App: React.FC = () => {
   });
   const [bruteforceData, setBruteforceData] = React.useState<
     TBruteforce | undefined
-  >();
+  >({
+    epochs: 374,
+    pena: 130,
+    reward: 20,
+    state: 410,
+    timeLoading: 0.333,
+  });
   const [QLearningData, setQLearningData] = React.useState<
     TQLearning | undefined
   >();
   const [deepQLearningData, setDeepQLearningData] = React.useState<
     TDeepQLearning | undefined
-  >();
+  >({
+    epsilon: 0.1,
+    gamma: 0.99,
+    pena: 0,
+    reward: 8,
+    step: 13,
+    timeLoading: 0.713,
+  });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    getDeepQData(setDeepQLearningData, setIsLoading);
-    getBruteForceData(setBruteforceData, setIsLoading);
+    // getDeepQData(setDeepQLearningData, setIsLoading);
+    // getBruteForceData(setBruteforceData, setIsLoading);
   }, [setBruteforceData, setDeepQLearningData, setIsLoading]);
 
   console.log("bruteforceData", bruteforceData);
