@@ -64,10 +64,9 @@ def deepQRoute():
     ENV_NAME = "Taxi-v3"
     env = gym.make(ENV_NAME)
     env.reset()
-    env.render()
+    # env.render()
     env.seed(123)
-    from keras.models import Sequential
-    from keras.layers import Dense, Activation, Flatten, Embedding, Reshape
+    from keras.layers import Embedding, Reshape
     from keras.optimizer_v1 import Adam
     Adam._name = 'hey'
     env.reset()
@@ -85,7 +84,8 @@ def deepQRoute():
     dqn = DQNAgent(model=model, nb_actions=action_size, memory=memory, nb_steps_warmup=500, target_model_update=1e-2, policy=policy)
     dqn.compile(Adam(lr=1e-3), metrics=['mae'])
     dqn.load_weights('./test_dql/dqn_Taxi-v3_weights.h5f')
+    # print(dqn.__dict__)
     history = dqn.test(env, nb_episodes=1, visualize=True, nb_max_episode_steps=1000, verbose=1)
-    print(history.history.keys())
+    # print(history.history.keys())
     # dict_keys(['episode_reward', 'nb_steps'])
-    return {'reward': history.history['episode_reward'], 'steps':history.history['nb_steps']}
+    return {'reward': history.history['episode_reward'][0], 'steps':history.history['nb_steps'][0], 'epsilon': policy.eps, 'gamma': dqn.gamma, 'pena':0}
