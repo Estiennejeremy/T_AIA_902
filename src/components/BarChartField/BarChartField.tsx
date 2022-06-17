@@ -18,7 +18,15 @@ const BarChartField: React.FC<IBarChartField> = ({
     // xAxisID: [10, 11],
     datasets: [
       {
-        label: "Bruteforce",
+        label: `Bruteforce ${
+          label === "reward"
+            ? bruteforceData.reward
+            : label === "number of actions realised"
+            ? bruteforceData.epochs
+            : label === "penalty"
+            ? bruteforceData.pena
+            : bruteforceData.timeLoading
+        }`,
         data: [
           label === "reward"
             ? bruteforceData.reward
@@ -33,7 +41,13 @@ const BarChartField: React.FC<IBarChartField> = ({
         // yAxisID: "y",
       },
       {
-        label: "QLearning",
+        label: `QLearning ${
+          label === "number of actions realised"
+            ? QLearningData.epochs
+            : label === "penalty"
+            ? QLearningData.pena
+            : QLearningData.timeLoading
+        }`,
         data: [
           // label === "reward"
           // ? bruteforceData.reward
@@ -49,7 +63,15 @@ const BarChartField: React.FC<IBarChartField> = ({
         // yAxisID: "y2",
       },
       {
-        label: "DeepQLearning",
+        label: `DeepQLearning ${
+          label === "reward"
+            ? deepQLearningData.reward
+            : label === "number of actions realised"
+            ? deepQLearningData.step
+            : label === "penalty"
+            ? deepQLearningData.pena
+            : deepQLearningData.timeLoading
+        }`,
         data: [
           label === "reward"
             ? deepQLearningData.reward
